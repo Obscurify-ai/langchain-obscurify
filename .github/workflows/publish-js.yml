@@ -24,7 +24,5 @@ jobs:
       - run: npm install -g npm@latest
       - run: npm install --no-audit --no-fund
       - run: npm run build
+      # Trusted publishing (OIDC): no token needed.
       - run: npm publish --provenance --access public
-        env:
-          # Empty once trusted publishing is configured; npm then uses OIDC.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
