@@ -1,0 +1,30 @@
+name: Publish npm package
+
+on:
+  push:
+    tags: ["js-v*"]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      id-token: write
+      contents: read
+    defaults:
+      run:
+        working-directory: libs/js
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm install -g npm@latest
+      - run: npm install --no-audit --no-fund
+      - run: npm run build
+      - run: npm publish --provenance --access public
+        env:
+          # Empty once trusted publishing is configured; npm then uses OIDC.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

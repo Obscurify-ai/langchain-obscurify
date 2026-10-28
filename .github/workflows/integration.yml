@@ -1,0 +1,31 @@
+name: Live integration tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: libs/python
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+      - run: uv run --group test pytest tests/integration_tests -q
+        env:
+          OBSCURIFY_API_KEY: ${{ secrets.OBSCURIFY_API_KEY }}
+  js:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: libs/js
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: npm install --no-audit --no-fund
+      - run: npm run build && npm run test:int
+        env:
+          OBSCURIFY_API_KEY: ${{ secrets.OBSCURIFY_API_KEY }}
