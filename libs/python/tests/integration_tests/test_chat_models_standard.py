@@ -3,7 +3,6 @@
 Needs OBSCURIFY_API_KEY. Run with: uv run --group test pytest tests/integration_tests
 """
 
-import pytest
 from langchain_core.language_models import BaseChatModel
 from langchain_tests.integration_tests import ChatModelIntegrationTests
 
@@ -33,6 +32,3 @@ class TestChatObscurify(ChatModelIntegrationTests):
     def supports_image_inputs(self) -> bool:
         return False
 
-    @pytest.mark.xfail(reason="The API doesn't send a usage chunk when streaming yet.")
-    def test_usage_metadata_streaming(self, model: BaseChatModel) -> None:
-        super().test_usage_metadata_streaming(model)

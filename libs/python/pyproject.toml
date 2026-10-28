@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "langchain-obscurify"
-version = "0.1.0"
+version = "0.1.1"
 description = "LangChain chat model for Obscurify.ai, a private AI API (OpenAI-compatible)"
 readme = "README.md"
 license = "MIT"

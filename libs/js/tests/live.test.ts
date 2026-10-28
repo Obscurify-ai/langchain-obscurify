@@ -39,6 +39,7 @@ describe("ChatObscurify (live)", { timeout: 120_000 }, () => {
     }
     expect(n).toBeGreaterThan(1);
     expect(String(full?.content)).toContain("3");
+    expect(full?.usage_metadata?.output_tokens).toBeGreaterThan(0);
   });
 
   test("tool calling (invoke and stream)", async () => {
