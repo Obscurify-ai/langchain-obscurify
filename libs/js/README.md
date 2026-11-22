@@ -12,8 +12,8 @@ npm install @obscurify/langchain @langchain/core
 
 ## Get an API key
 
-1. Create an account at [obscurify.ai](https://obscurify.ai/?utm_source=langchain-obscurify-js). An account is a random account number: no email, username or phone.
-2. Add a balance. The API works on every plan with a positive balance. New accounts get $1 of starter credit (limits apply; see https://obscurify.ai/pricing).
+1. Create an account at [obscurify.ai](https://obscurify.ai/?utm_source=langchain-obscurify-js). An account is a random account code: no email, username or phone.
+2. Add a balance. The API works on every plan with a positive balance. New accounts may get $1 of starter credit while this month's promo budget lasts (see https://obscurify.ai/pricing).
 3. Open https://obscurify.ai/account and click **Show API Key**. Keys look like `sk-obs1_...`.
 
 ```bash
@@ -78,7 +78,7 @@ await agent.invoke({ messages: [{ role: "user", content: "Weather in Oslo?" }] }
 
 ## Models
 
-Any model ID from `GET https://obscurify.ai/v1/models` works, for example `deepseek/deepseek-v4-flash`, `meta-llama/llama-3.3-70b-instruct`, `z-ai/glm-5.3-flash` or `qwen/qwen3.8-27b`. Frontier models need the Casual plan; uncensored models need Pro. Prices per model: https://obscurify.ai/model_cards.
+Any model ID from `GET https://obscurify.ai/v1/models` works, for example `deepseek/deepseek-v4-flash`, `meta-llama/llama-3.3-70b-instruct`, `z-ai/glm-5.3-flash` or `qwen/qwen3.8-27b`. Frontier models need the Casual plan; uncensored models need Pro. Prices per model: https://obscurify.ai/models.
 
 ## Configuration
 
@@ -91,7 +91,7 @@ All other `ChatOpenAI` options (`temperature`, `maxTokens`, `timeout`, `maxRetri
 
 ## Privacy
 
-Obscurify.ai doesn't store prompts or responses, scrambles identities before requests reach model providers, and sends text requests only over zero-data-retention routes. Details: https://obscurify.ai/privacy.
+Obscurify.ai doesn't store prompts or responses, and scrambles identities before requests reach model providers. Models in the "Zero retention" category of `/v1/models` run only on zero-data-retention routes, which rely on their providers' published policies. Other models follow their provider's own policy. Details: https://obscurify.ai/privacy.
 
 ## Links
 

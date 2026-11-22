@@ -1,6 +1,6 @@
 # langchain-obscurify
 
-LangChain integrations for [Obscurify.ai](https://obscurify.ai/?utm_source=langchain-obscurify), a private AI chat service with an OpenAI-compatible API (200+ models). Obscurify.ai doesn't store prompts or responses, and accounts are a random account number with no email.
+LangChain integrations for [Obscurify.ai](https://obscurify.ai/?utm_source=langchain-obscurify), a private AI chat service with an OpenAI-compatible API (200+ models). Obscurify.ai doesn't store prompts or responses, and an account is a random account code with no email.
 
 | Language | Package | Class | Source |
 |---|---|---|---|
@@ -11,7 +11,7 @@ Both support invoke, streaming, tool calling, structured output, reasoning effor
 
 ## Quick start
 
-Get an API key: create an account at [obscurify.ai](https://obscurify.ai/?utm_source=langchain-obscurify), add a balance (the API works on every plan with a positive balance; new accounts get $1 of starter credit, limits apply), then click **Show API Key** on https://obscurify.ai/account.
+Get an API key: create an account at [obscurify.ai](https://obscurify.ai/?utm_source=langchain-obscurify), add a balance (the API works on every plan with a positive balance; new accounts may get $1 of starter credit while this month's promo budget lasts), then click **Show API Key** on https://obscurify.ai/account.
 
 ```bash
 export OBSCURIFY_API_KEY="sk-obs1_..."
